@@ -32,13 +32,54 @@ while True:
             else:
                 fingers.append(0)
         
-        total_fingers = fingers.count(1)
+        '''
+        according to Malaysian Sign Language
+        https://malaysiansignlanguage.weebly.com/uploads/1/0/5/8/105863499/editor/bimno_1.jpg?1496377606
+        '''
+        zero = [0,0,0,0,0]
+        one = [0,1,0,0,0]
+        two = [0,1,1,0,0]
+        three = [1,1,1,0,0]
+        four = [0,1,1,1,1]
+        five = [1,1,1,1,1]
+        six = [0,1,1,1,0]
+        seven = [0,1,1,0,1]
+        eight = [0,1,0,1,1]
+        nine = [0,0,1,1,1]
+        ten = [1,0,0,0,0]
+
+        if fingers == zero:
+            total_fingers = 0
+        if fingers == one:
+            total_fingers = 1
+        if fingers == two:
+            total_fingers = 2
+        if fingers == three:
+            total_fingers = 3
+        if fingers == four:
+            total_fingers = 4
+        if fingers == five:
+            total_fingers = 5
+        if fingers == six:
+            total_fingers = 6
+        if fingers == seven:
+            total_fingers = 7
+        if fingers == eight:
+            total_fingers = 8
+        if fingers == nine:
+            total_fingers = 9
+        if fingers == ten:
+            total_fingers = 10
+        
         text = f'Total fingers: {total_fingers}'
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(frame, text, (100,100), font, 2, (0,0,255), 2)
 
     # show window frame contain live camera video
     cv2.imshow("frame", frame)
+
+    reference  = cv2.imread('sign.jpg')
+    cv2.imshow("reference", reference)
 
 
     # wait for key every 1 millisecond
